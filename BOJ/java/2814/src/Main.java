@@ -5,37 +5,35 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         final long MAX = 1000000000;
         int N, P;
-        long answer = 0;
         N = scanner.nextInt();
         P = scanner.nextInt();
-        long[] table;
-        if (N > 2) {
-            table = new long[N];
-        } else {
-            table = new long[2];
+        long answer = P;
+        int count = 1;
+        int[] prime_table = new int[P];
+        int prime_table_count = 0;
+        for (int i = 2; i < P; i++) {
+            if(is_prime_number(i))
+                prime_table[prime_table_count++] = i;
         }
-        table[0] = P;
-        table[1] = P*P;
-        int table_count = 2;
 
-        while (table_count < N) {
-            P++;
-            if (is_devide_number(P, table[0])) {
-                table[table_count] = P*table[0];
-                if(table[table_count-1]==0||table[table_count]>MAX){
-                    table[table_count]=0;
+        while (count < N) {
+            answer=answer+P*(N-count);
+            if(answer>MAX){
+                answer=0;
+                break;
+            }else{
+                count=(int) answer/P;
+                for(int i=0;i<prime_table_count;i++){
+                    count-=answer/(P*prime_table[i]);
                 }
-                table_count++;
             }
         }
-
-        answer = table[N - 1];
         System.out.println(answer);
     }
 
-    private static boolean is_devide_number(int num1, long num2) {
-        for (int i = 2; i < num2; i++) {
-            if (num1 % i == 0) {
+    private static boolean is_prime_number(int num){
+        for(int i=2;i<num;i++){
+            if(num%i==0){
                 return false;
             }
         }
