@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "enter program name, for example ${workspaceFolder}/a.out",
+            "program": "/home/dongha/Desktop/Algorithm/BOJ/cpp/1520/1520",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
