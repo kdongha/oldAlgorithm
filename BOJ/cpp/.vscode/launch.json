@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/home/dongha/Desktop/Algorithm/BOJ/cpp/1520/1520",
+            "program": "/home/dongha/Desktop/Algorithm/BOJ/cpp/2011/2011",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
